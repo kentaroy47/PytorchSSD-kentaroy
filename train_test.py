@@ -80,7 +80,7 @@ if not os.path.exists(test_save_dir):
     os.makedirs(test_save_dir)
 
 log_file_path = save_folder + '/train' + time.strftime('_%Y-%m-%d-%H-%M', time.localtime(time.time())) + '.log'
-if args.dataset == 'VOC':
+if "VOC" in args.dataset:
     train_sets = [('2007', 'trainval'), ('2012', 'trainval')]
     cfg = (VOC_300, VOC_512)[args.size == '512']
 else:
@@ -116,6 +116,7 @@ batch_size = args.batch_size
 weight_decay = 0.0005
 gamma = 0.1
 momentum = 0.9
+
 if args.visdom:
     import visdom
 
